@@ -61,7 +61,7 @@ class Scoreboard
       string reset = "\x1b[0m";
       color = "\x1b[32;4m"; //green 
       string score = "\x1b[36;1m"; //score color 
-      cout << color << "Soccer Scoreboard Dr_T Sytle" << reset << endl; 
+      cout << color << "Football Scoreboard" << reset << endl; 
       cout << home.getName() << "\t\t" << visitor.getName() << endl; 
       cout << "\t" << score << home.getScore() << reset << "\t\t\t\t\t\t" << visitor.getScore() << endl; 
       cout << score << home.getCoachName() << reset << "\t\t" << visitor.getCoachName() << endl; 
@@ -119,14 +119,16 @@ int main()
       cout << "G = Update Visting Team Score" << endl; 
       cout << "E = Exit" << endl;
       cout << ">"; 
-      cin >> userChoice; 
+      userChoice = validateString(userChoice);
+      //cin >> userChoice; 
 
       if(userChoice == "A" || userChoice == "a")
       {
         //Dr_T challenge Accept a new name for s's home team
         cout << "****Update Home Team Score module*** " << endl; 
         cout << "\nPlease enter a new name for the home team: ";
-        cin >> newName; 
+        newName = validateString(newName);
+        //cin >> newName; 
         //change that home team's default name
         tOne.setName(newName); //set tOne's data to the new desired name
       }
@@ -134,7 +136,8 @@ int main()
       {
         cout << "\nUpdate Home Score Module****" << endl; 
         cout << "\nPlease enter a new score for the home team: "; 
-        cin >> newScore; 
+        newScore = validateInt(newScore);
+        //cin >> newScore; 
         tOne.setScore(newScore);  //set the new score for tOne        
       }
       else if(userChoice == "C" || userChoice == "c")
@@ -162,8 +165,8 @@ int main()
       else if(userChoice == "D" || userChoice == "d")
       {
           cout << "\nUpdate Visitor Coach Module****" << endl; 
-          cout << "\nPlease enter the visitor coach Name: "; 
-          cin >> newCoachName; 
+          cout << "\nPlease enter the visitor coach Name: ";newCoachName = validateString(newCoachName); 
+          //cin >> newCoachName; 
           tTwo.setCoachName(newCoachName); 
       }
       else if(userChoice == "E" || userChoice == "e")
